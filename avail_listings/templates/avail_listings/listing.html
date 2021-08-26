@@ -1,0 +1,32 @@
+{% extends "avail_listings/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2><u>{{ Listing.user }}'s Listing:</u></h2>
+    
+    <div class="error_message">
+        {% if message %}
+            {{ message }}
+        {% endif %}
+    </div>
+    <div>
+        <div>
+            {{ Listing.title }} | {{ Listing.location }} | {{ Listing.dates }} 
+            <br>{{ Listing.description }}
+        </div><br><br>
+        <div id="applications">
+            <b>Apply to This Listing:</b>
+            <input id="name" type="text" placeholder="Name">
+            <input id="newEmail" type="text" placeholder="Email address">
+            <input id="description" type="text" placeholder="Related Experience and References">
+            <input id="submit" action="submit" type="submit" button onclick="success()" value="Apply Now"></button>
+        </div>
+    </div>
+    <!-- Bug: Not working properly; I believe it's an error in the way I'm referencing the current user -->
+    {% if listing.active and request.user == owner %}
+        {{ Listing }}
+        <div>
+            <input id="submit" action="submit" type="submit" button onclick="success()" value="Deactivate"></button>
+        </div>
+    {% endif %} 
+{% endblock %}

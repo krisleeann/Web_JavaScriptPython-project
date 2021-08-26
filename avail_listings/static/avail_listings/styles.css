@@ -1,0 +1,179 @@
+style {
+  background-color:lightslategray;
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+}
+
+body {
+    text-align: center;
+    padding: 10px;
+    color: black;
+    background-color:lightslategray;
+}
+
+.error_message {
+    font-style: bold;
+    color: red;
+    font-size: x-large;
+}
+
+.nav {
+    color: whitesmoke;
+    background-color: rgb(40, 116, 208);
+    text-align: center;
+}
+
+.nav a {
+    font-style: bold;
+    font-size: 17px;
+    text-align: center;
+    background-color: rgb(40, 116, 208);
+    padding: 14px 16px;
+    color: whitesmoke;
+}
+
+.nav a:hover {
+    text-align: center;
+    background-color: whitesmoke;
+    color: black;
+}
+
+.li nav-left {
+    background-color: whitesmoke;
+    color: rgb(40, 116, 208); 
+    text-align: left;
+}
+
+.li nav-right {
+    background-color: whitesmoke;
+    color: rgb(40, 116, 208); 
+    text-align: right;
+}
+
+.form_entry {
+  text-align: left;
+}
+
+.form {
+  text-align: left;
+  background-color: lightslategray;
+}
+
+.container {
+  padding: 20px;
+  background-color: lightslategray;
+  width: min-content;
+  height: min-content;
+  text-align: left;
+}
+
+.subscriptions {
+  padding: 20px;
+  background-color: lightslategray;
+  width: min-content;
+  height: min-content;
+  text-align: left;
+}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: left;
+  background-color: lightgrey;
+}
+
+.btn btn-primary {
+  background-color: rgb(40, 116, 208);
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+.btn btn-primary:hover {
+  opacity: 0.5; 
+  background-color: green;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: rgb(40, 116, 208);
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+input[type=submit]:hover {
+  opacity: 0.5;
+}
+
+.footer {
+    background-color: slategrey;
+}
+
+.nav ul {
+    list-style: none;
+    text-align: center;
+}
+
+.nav ul li {
+    display: inline-block;
+}
+
+.second_nav {
+  text-align: center;
+  background-color: lightslategrey;
+}  
+
+.second_nav a {
+  color: white;
+}
+
+.display_listings {
+  text-align: left;
+  color: black;
+}
+
+.second_nav a:hover {
+    text-align: center;
+    background-color: rgb(40, 116, 208);
+    color: black;
+} 
+
+.form-group {
+  text-align: center;
+  width: 60%;
+}
+
+.form-group-header {
+  text-align: center;
+  width: 60%;
+}
+
+.applications input[type=text], input[type=submit] {
+  width: auto;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  text-align: left;
+  background-color: rgb(40, 116, 208);
+  color: white;
+}
+
+.applications input[type=submit] {
+  width: auto;
+  background-color: rgb(40, 116, 208);
+  color: white;
+  border: none;
+  text-align: left;
+}
+
+.apply {
+  text-align: left;
+}

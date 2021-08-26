@@ -1,0 +1,69 @@
+{% extends "avail_listings/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h3>Available Positions</h3>
+    <!-- Code from W3 schools -->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides CSS ERROR: COULD NOT CENTER -->
+            <div class="carousel-inner">
+                <div class="item active" >
+                    <img src="https://media.istockphoto.com/photos/child-playing-with-wood-blocks-picture-id862313220?k=6&m=862313220&s=612x612&w=0&h=zeYkcUSja5bK5XxFm8mxsu042CTwX7Rsh5UDb_FEd2k=" alt="babysitting" style="width:30%;">
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/photos/odin-the-puppy-on-a-walk-picture-id1010858884?k=6&m=1010858884&s=612x612&w=0&h=E0eARA5_NlKIzA-TcQZNolU-5HNxR_wXmZse5HWqq5I=" alt="petsitting" style="width:30%;">
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/photos/handing-over-keys-picture-id947005214?k=6&m=947005214&s=612x612&w=0&h=hbCYqOg7L648VEqtuXSI73NcTBdZ69E6UgLKADqlGq4=" alt="housesitting" style="width:30%;">
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/photos/young-afro-business-lady-smiling-sitting-in-modern-office-picture-id1170926292?k=6&m=1170926292&s=612x612&w=0&h=Gp30mfRCuJ2AgQ1nNAIe-kjVgmeRyzy7L5FzoCYMlaA=" alt="personalassistant" style="width:30%;">
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/photos/senior-man-with-hands-on-walking-frame-with-care-worker-picture-id1190832555?k=6&m=1190832555&s=612x612&w=0&h=NrtVHjOHjxownPHR1xtMYAAJh26-C_LbCbRZ5Dn2Kv8=" alt="seniorcare" style="width:30%;">
+                </div>
+                <div class="item">
+                    <img src="https://media.istockphoto.com/photos/housewife-cleaning-with-vacuum-cleaner-picture-id1147205774?k=6&m=1147205774&s=612x612&w=0&h=nQ2wWh-CLaihQaPpxIpIYjxQUOIQFqrr6ktiBfXBuFY=" alt="housesitting" style="width:30%;">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div><br>
+    <div class="error_message">
+        {% if message %}
+            {{ message }}
+        {% endif %}
+    </div><br>
+    <div class="display_listings">
+        <ul>
+            {% for list in listing %}
+                {% if list.active %}
+                    <li><a href="{% url 'listing' list.id %}">
+                    {{ list.user }}  |
+                    {{ list.title }} |
+                    {{ list.location }} |
+                    {{ list.dates }} |<br>
+                    {{ list.description }}</p></a>
+                {% endif %}
+            {% endfor %}
+        </ul> 
+    </div> 
+    
+{% endblock %}

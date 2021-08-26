@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Community Care Co.{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'avail_listings/styles.css' %}" rel="stylesheet">
+        <!-- Import JS file -->
+        <script src="{% static 'avail_listings/subscribe.js' %}"></script>
+        
+        <!-- External stylesheets for the carousel -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script>
+            function success() {
+                    alert("Success!");
+                }
+        </script>
+    </head>
+    <body>
+        <h1>Community Care Co.</h1>
+        <br><i>Caregivers from your community, that care for your community.</i>
+        <br>Let us help you find a babysitter, caregiver, personal shopper, house/pet sitter, or famlily assistant. 
+        <div><br>
+            {% if user.is_authenticated %}
+                Signed in as <strong>{{ user.username }}</strong>.
+            {% else %}
+                <b>Not signed in.</b>
+            {% endif %}
+        </div>
+        <br>
+        <div class="nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'categories' %}">Our Categories</a>
+                </li>
+                <!-- Need to fix listing url path -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Browse Available Positions</a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link" href="{% url 'events' %}">Community Events</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create_listing' %}">Post a Listing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'create_event' %}">Post a Community Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register as a Caregiver</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register as an Individual/Family</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <hr>
+        {% block body %}
+        {% endblock %}
+        {% comment %}  
+            Email subscription code manipulated from w3schools
+            Logan: JavaScript requirement, in conjunction with subscribe.js
+        {% endcomment %}
+        <div><br>
+            <footer>
+                <h5><b>Subscribe to our Newsletter!</b></h5>
+                <p>We'll notify you once a month about upcoming deals, community events, and company news.</p>
+                <form>
+                    <div id="subscriptions">
+                        <input id="name" type="text" placeholder="Name">
+                        <input id="newEmail" type="text" placeholder="Email address">
+                        <div>
+                            <label>
+                                <input type="checkbox" checked="checked" name="subscribe"> New Customer
+                            </label>
+                        </div>
+                        <input id="submit" action="submit" type="submit" button onclick="success()" value="Subscribe"></button>
+                    </div>
+                </form>
+            </footer>
+        </div>
+    </body>
+</html>

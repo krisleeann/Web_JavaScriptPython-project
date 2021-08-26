@@ -1,0 +1,16 @@
+{% extends "avail_listings/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="error_message">
+        {% if message %}
+            {{ message }}
+        {% endif %}
+    </div>
+    <div>
+        <ul>
+        {% for c in category %}
+            <li><a href="category" c.id >{{ c }}</a><br>
+        {% endfor %}
+    </div>
+{% endblock %}

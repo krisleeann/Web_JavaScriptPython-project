@@ -1,0 +1,32 @@
+{% extends "avail_listings/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2>Explore Categories</h2>
+    
+    <div class="error_message">
+        {% if message %}
+            {{ message }}
+        {% endif %}
+    </div>
+    <!-- BUG: Display links to each subcategory... Didn't finish url path to each category -->
+    <div class="second_nav">
+        <a class="nav-link" href="{% url 'index' %}">Senior Care</a>
+        <a class="nav-link" href="{% url 'index' %}">Child Care</a>
+        <a class="nav-link" href="{% url 'index' %}">Pet Care</a>
+        <a class="nav-link" href="{% url 'index' %}">Home Care</a>
+        <a class="nav-link" href="{% url 'index' %}">Personal Shopper</a>
+        <a class="nav-link" href="{% url 'index' %}">Personal/Family Assistants</a>
+        <a class="nav-link" href="{% url 'index' %}">Home and Animal Care</a>
+        <a class="nav-link" href="{% url 'index' %}">Events</a>
+    </div> 
+    {% comment %}  
+    <div>
+        <ul>
+            {% for c in category %}
+                <li><a href="{% url 'category' c.id %}">{{ c }}</a>
+            {% endfor %}
+        </ul>
+    </div> 
+    {% endcomment %} 
+{% endblock %}

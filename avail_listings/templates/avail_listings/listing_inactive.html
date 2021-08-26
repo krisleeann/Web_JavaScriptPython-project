@@ -1,0 +1,25 @@
+{% extends "avail_listings/layout.html" %}
+
+{% block body %}
+    <h2>A caregiver has been assigned to this role.</h2>
+
+    <div class="error_message">
+        {% if message %}
+            {{ message }}
+        {% endif %}
+    </div>
+    <div>
+        {% comment %} 
+            Unfinished: Tell the user the listing is inactive and give option to redirect 
+        {% endcomment %}
+        {% if request.user == user %}
+            {% csrf_token %}
+            <br>If you've found a caregiver and would like to mark this listing as inactive, click below.</br>
+            <input class="btn btn-primary" type="submit" value="Deactivate">
+        {% endif%}
+        {% if active = False %}
+            {{ message }}
+            <br>Have no fear! Browse available roles <a href="{% url 'index' %}">here.</a>
+        {% endif %}
+    </div>
+{% endblock %}
